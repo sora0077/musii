@@ -3,23 +3,27 @@ PODS:
   - ReactorKit (1.1.0):
     - RxSwift (>= 4.0.0)
   - RxSwift (4.2.0)
+  - SwiftLint (0.27.0)
 
 DEPENDENCIES:
   - Alamofire
   - ReactorKit
   - RxSwift
+  - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ReactorKit
     - RxSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ReactorKit: 26470a9eff5094fae909a30af0be7cd0cf8a182d
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
 
-PODFILE CHECKSUM: 17bc903466f63771c25a72cc60f6de754c910438
+PODFILE CHECKSUM: 26ea19d9cffa6eb44c73e5bfc6af55d138da9842
 
 COCOAPODS: 1.5.3

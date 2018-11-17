@@ -37,6 +37,9 @@
 		D9DAF2A12190983D00B8FDD4 /* Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = D9DAF2912190983C00B8FDD4 /* Utility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9DAF2A42190983D00B8FDD4 /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF28F2190983C00B8FDD4 /* Utility.framework */; };
 		D9DAF2A52190983D00B8FDD4 /* Utility.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF28F2190983C00B8FDD4 /* Utility.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9DAF2B421A09F2A00B8FDD4 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
+		D9DAF2B521A09F4A00B8FDD4 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
+		D9DAF2B821A09F6F00B8FDD4 /* Infrastructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */; };
 		F9A2BEA60C7AB8D843B063CA /* Pods_UtilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567F9500828E969B2D9FD1 /* Pods_UtilityTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +192,8 @@
 		D9DAF2972190983D00B8FDD4 /* UtilityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UtilityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DAF29E2190983D00B8FDD4 /* UtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
 		D9DAF2A02190983D00B8FDD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleMusicKit.framework; path = Carthage/Build/iOS/AppleMusicKit.framework; sourceTree = "<group>"; };
+		D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure.swift; sourceTree = "<group>"; };
 		DC567F9500828E969B2D9FD1 /* Pods_UtilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA23A756AD9B9D7382AE1FED /* Pods-Infrastructure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infrastructure/Pods-Infrastructure.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +207,7 @@
 				D9DAF25D219083A300B8FDD4 /* Domain.framework in Frameworks */,
 				D9DAF2822190843800B8FDD4 /* Infrastructure.framework in Frameworks */,
 				26C28553D0E5019C6677AA20 /* Pods_App.framework in Frameworks */,
+				D9DAF2B421A09F2A00B8FDD4 /* AppleMusicKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDDBDFA42A7E5260682F5B9 /* Pods_Infrastructure.framework in Frameworks */,
+				D9DAF2B521A09F4A00B8FDD4 /* AppleMusicKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +285,7 @@
 		52FB307599669C7C07B12E8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */,
 				5A9D4CD9F0779C5736DF6AC6 /* Pods_App.framework */,
 				0C68EBA721938FD5A56B05BD /* Pods_AppTests.framework */,
 				9687393816788F9811DCF733 /* Pods_AppUITests.framework */,
@@ -405,6 +413,7 @@
 		D9DAF26C219083CA00B8FDD4 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				D9DAF2B621A09F5B00B8FDD4 /* Sources */,
 				D9DAF26D219083CA00B8FDD4 /* Infrastructure.h */,
 				D9DAF26E219083CA00B8FDD4 /* Info.plist */,
 			);
@@ -436,6 +445,14 @@
 				D9DAF2A02190983D00B8FDD4 /* Info.plist */,
 			);
 			path = UtilityTests;
+			sourceTree = "<group>";
+		};
+		D9DAF2B621A09F5B00B8FDD4 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -676,6 +693,7 @@
 					};
 					D9DAF26A219083CA00B8FDD4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					D9DAF272219083CA00B8FDD4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1080,6 +1098,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DAF2B821A09F6F00B8FDD4 /* Infrastructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,8 +1326,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D70BBEB18437A03F8C2E8E6 /* Pods-App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1325,8 +1349,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BD55BDD7C12B2A7DA7B1895 /* Pods-App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1513,12 +1542,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A071C878F220BDE616629DAC /* Pods-Infrastructure.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Infrastructure/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1529,6 +1563,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.Infrastructure;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1538,12 +1573,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FA23A756AD9B9D7382AE1FED /* Pods-Infrastructure.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Infrastructure/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1563,6 +1603,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82A694F73D0D25052281AFF1 /* Pods-InfrastructureTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = InfrastructureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1581,6 +1622,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D3EC28B0532B45E8576CAC9 /* Pods-InfrastructureTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = InfrastructureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

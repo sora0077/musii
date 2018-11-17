@@ -64,6 +64,7 @@ target 'Utility' do
 
         # Pods for App
         pod 'ReactorKit'
+        pod 'SwiftLint'
 
         target 'AppTests' do
           inherit! :search_paths
