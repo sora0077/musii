@@ -82,12 +82,6 @@ target 'Utility' do
       end
     end
 
-    target 'AppleMusicKit' do
-      inherit! :search_paths
-      # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-      use_frameworks!
-    end
-
     target 'DomainTests' do
       inherit! :search_paths
       # Pods for testing
