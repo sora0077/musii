@@ -46,6 +46,7 @@ target 'Utility' do
     use_frameworks!
 
     # Pods for Domain
+    pod 'Tagged'
 
 
     target 'Infrastructure' do
