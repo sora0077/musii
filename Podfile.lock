@@ -2,6 +2,11 @@ PODS:
   - Alamofire (4.7.3)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
+  - Realm (3.11.2):
+    - Realm/Headers (= 3.11.2)
+  - Realm/Headers (3.11.2)
+  - RealmSwift (3.11.2):
+    - Realm (= 3.11.2)
   - RxAtomic (4.4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
@@ -10,6 +15,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - ReactorKit
+  - RealmSwift
   - RxSwift
   - SwiftLint
 
@@ -17,6 +23,8 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - ReactorKit
+    - Realm
+    - RealmSwift
     - RxAtomic
     - RxSwift
     - SwiftLint
@@ -24,10 +32,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
+  Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
+  RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
 
-PODFILE CHECKSUM: 26ea19d9cffa6eb44c73e5bfc6af55d138da9842
+PODFILE CHECKSUM: 9be279641e6d13dcf6a0974146130d7f8cd46e28
 
 COCOAPODS: 1.5.3

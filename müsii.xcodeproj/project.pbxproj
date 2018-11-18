@@ -40,6 +40,7 @@
 		D9DAF2B421A09F2A00B8FDD4 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
 		D9DAF2B521A09F4A00B8FDD4 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
 		D9DAF2B821A09F6F00B8FDD4 /* Infrastructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */; };
+		D9DAF2BA21A0A31F00B8FDD4 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2B921A0A31F00B8FDD4 /* Session.swift */; };
 		F9A2BEA60C7AB8D843B063CA /* Pods_UtilityTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC567F9500828E969B2D9FD1 /* Pods_UtilityTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +195,7 @@
 		D9DAF2A02190983D00B8FDD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleMusicKit.framework; path = Carthage/Build/iOS/AppleMusicKit.framework; sourceTree = "<group>"; };
 		D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infrastructure.swift; sourceTree = "<group>"; };
+		D9DAF2B921A0A31F00B8FDD4 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		DC567F9500828E969B2D9FD1 /* Pods_UtilityTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UtilityTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA23A756AD9B9D7382AE1FED /* Pods-Infrastructure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Infrastructure.release.xcconfig"; path = "Pods/Target Support Files/Pods-Infrastructure/Pods-Infrastructure.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -450,6 +452,7 @@
 		D9DAF2B621A09F5B00B8FDD4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D9DAF2B921A0A31F00B8FDD4 /* Session.swift */,
 				D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */,
 			);
 			path = Sources;
@@ -490,6 +493,7 @@
 			buildConfigurationList = D9DAF2402190838B00B8FDD4 /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				0A37E84B036A3E2D60FC0C15 /* [CP] Check Pods Manifest.lock */,
+				1ECDD3164D95C00F1E0126AD /* [CP-User] Run SwiftLint */,
 				D9DAF2112190838900B8FDD4 /* Sources */,
 				D9DAF2122190838900B8FDD4 /* Frameworks */,
 				D9DAF2132190838900B8FDD4 /* Resources */,
@@ -847,6 +851,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		1ECDD3164D95C00F1E0126AD /* [CP-User] Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n";
+			showEnvVarsInLog = 0;
+		};
 		4955509D3CE0569552106125 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -945,6 +968,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-InfrastructureTests/Pods-InfrastructureTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
@@ -953,6 +978,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
@@ -974,6 +1001,8 @@
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -983,6 +1012,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1102,6 +1133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DAF2BA21A0A31F00B8FDD4 /* Session.swift in Sources */,
 				D9DAF2B821A09F6F00B8FDD4 /* Infrastructure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

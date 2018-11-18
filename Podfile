@@ -56,6 +56,7 @@ target 'Utility' do
       # Pods for Infrastructure
       pod 'Alamofire'
       pod 'RxSwift'
+      pod 'RealmSwift'
 
       target 'App' do
         inherit! :search_paths
@@ -65,6 +66,10 @@ target 'Utility' do
         # Pods for App
         pod 'ReactorKit'
         pod 'SwiftLint'
+
+        script_phase :name => 'Run SwiftLint',
+                     :script => '"${PODS_ROOT}/SwiftLint/swiftlint" autocorrect',
+                     :execution_position => :before_compile
 
         target 'AppTests' do
           inherit! :search_paths
