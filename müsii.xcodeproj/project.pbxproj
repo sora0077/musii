@@ -34,6 +34,7 @@
 		D94D3B5421A1729700B241CB /* Storefront.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B5321A1729700B241CB /* Storefront.swift */; };
 		D94D3B5621A172DB00B241CB /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B5521A172DB00B241CB /* Entity.swift */; };
 		D94D3B5821A18CCE00B241CB /* Entity+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B5721A18CCE00B241CB /* Entity+AppleMusicKit.swift */; };
+		D94D3BE821A3F54400B241CB /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3BE721A3F54400B241CB /* dummy.swift */; };
 		D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2172190838900B8FDD4 /* AppDelegate.swift */; };
 		D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2192190838900B8FDD4 /* ViewController.swift */; };
 		D9DAF21D2190838900B8FDD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DAF21B2190838900B8FDD4 /* Main.storyboard */; };
@@ -200,6 +201,7 @@
 		D94D3B5321A1729700B241CB /* Storefront.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storefront.swift; sourceTree = "<group>"; };
 		D94D3B5521A172DB00B241CB /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		D94D3B5721A18CCE00B241CB /* Entity+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+AppleMusicKit.swift"; sourceTree = "<group>"; };
+		D94D3BE721A3F54400B241CB /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		D9DAF2152190838900B8FDD4 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DAF2172190838900B8FDD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9DAF2192190838900B8FDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 			children = (
 				D9DAF2912190983C00B8FDD4 /* Utility.h */,
 				D9DAF2922190983C00B8FDD4 /* Info.plist */,
+				D94D3BE721A3F54400B241CB /* dummy.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -810,6 +813,7 @@
 					};
 					D9DAF28E2190983C00B8FDD4 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					D9DAF2962190983D00B8FDD4 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1299,6 +1303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D94D3BE821A3F54400B241CB /* dummy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1826,6 +1831,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD69874425F1418112D3A073 /* Pods-Utility.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -1842,6 +1848,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.Utility;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1851,6 +1858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2B26C7746B8B43E30E9DB65C /* Pods-Utility.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
