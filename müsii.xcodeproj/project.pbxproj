@@ -35,6 +35,8 @@
 		D94D3B5621A172DB00B241CB /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B5521A172DB00B241CB /* Entity.swift */; };
 		D94D3B5821A18CCE00B241CB /* Entity+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B5721A18CCE00B241CB /* Entity+AppleMusicKit.swift */; };
 		D94D3BE821A3F54400B241CB /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3BE721A3F54400B241CB /* dummy.swift */; };
+		D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
+		D98804AD21A4560200125F74 /* AppleMusicKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2172190838900B8FDD4 /* AppDelegate.swift */; };
 		D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2192190838900B8FDD4 /* ViewController.swift */; };
 		D9DAF21D2190838900B8FDD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DAF21B2190838900B8FDD4 /* Main.storyboard */; };
@@ -146,6 +148,7 @@
 			files = (
 				D9DAF2A52190983D00B8FDD4 /* Utility.framework in Embed Frameworks */,
 				D9DAF25E219083A300B8FDD4 /* Domain.framework in Embed Frameworks */,
+				D98804AD21A4560200125F74 /* AppleMusicKit.framework in Embed Frameworks */,
 				D9DAF2832190843800B8FDD4 /* Infrastructure.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -245,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */,
 				D9DAF2A42190983D00B8FDD4 /* Utility.framework in Frameworks */,
 				D9DAF25D219083A300B8FDD4 /* Domain.framework in Frameworks */,
 				D9DAF2822190843800B8FDD4 /* Infrastructure.framework in Frameworks */,
@@ -1516,7 +1520,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9D70BBEB18437A03F8C2E8E6 /* Pods-App.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1539,7 +1542,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3BD55BDD7C12B2A7DA7B1895 /* Pods-App.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1562,7 +1564,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BB4B01D1AA4C0D3D65F7C9E3 /* Pods-AppTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppTests/Info.plist;
@@ -1583,7 +1584,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAC9A75A98A536946D95C7B8 /* Pods-AppTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppTests/Info.plist;
@@ -1604,7 +1604,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 96E133E8451F38E89653A4BB /* Pods-AppUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1624,7 +1623,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 316B007D6CE488A38163D5B5 /* Pods-AppUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1694,7 +1692,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 41A4B4C947F025BFE59DF697 /* Pods-DomainTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DomainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1713,7 +1710,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 446138CD26B492698C397693 /* Pods-DomainTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = DomainTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1793,7 +1789,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 82A694F73D0D25052281AFF1 /* Pods-InfrastructureTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = InfrastructureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1812,7 +1807,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7D3EC28B0532B45E8576CAC9 /* Pods-InfrastructureTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = InfrastructureTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1884,7 +1878,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45CC665BE552E61A995784CB /* Pods-UtilityTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UtilityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1904,7 +1897,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A97AFC691ACDF0C3AE210D95 /* Pods-UtilityTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = UtilityTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
