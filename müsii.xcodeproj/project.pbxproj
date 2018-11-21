@@ -15,6 +15,10 @@
 		76CCC1EC4A9F056217B339A5 /* libPods-Infrastructure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23F0BA8E7C34831D31442284 /* libPods-Infrastructure.a */; };
 		9D65E977B8C59AA1EDC55F33 /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45508751394127384B2E1EB9 /* libPods-App.a */; };
 		9E3DD1CDE880CF4C13A0F587 /* libPods-Domain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAFFA9614FBEAB2897A070 /* libPods-Domain.a */; };
+		D946B74E21A59BAD006568FA /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B74D21A59BAD006568FA /* DomainError.swift */; };
+		D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */; };
+		D946B75321A5A387006568FA /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75221A5A387006568FA /* AppSession.swift */; };
+		D946B75521A5A597006568FA /* AppSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75421A5A597006568FA /* AppSessionRepository.swift */; };
 		D94D3B3221A16D6400B241CB /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3121A16D6400B241CB /* Entity.swift */; };
 		D94D3B4221A16E0600B241CB /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3321A16E0300B241CB /* Song.swift */; };
 		D94D3B4321A16E0600B241CB /* EditorialNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3421A16E0300B241CB /* EditorialNotes.swift */; };
@@ -37,6 +41,8 @@
 		D94D3BE821A3F54400B241CB /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3BE721A3F54400B241CB /* dummy.swift */; };
 		D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
 		D98804AD21A4560200125F74 /* AppleMusicKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47B9621A5B375002B053D /* LoginReactor.swift */; };
+		D9C47B9A21A5B697002B053D /* LaunchReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47B9921A5B697002B053D /* LaunchReactor.swift */; };
 		D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2172190838900B8FDD4 /* AppDelegate.swift */; };
 		D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2192190838900B8FDD4 /* ViewController.swift */; };
 		D9DAF21D2190838900B8FDD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DAF21B2190838900B8FDD4 /* Main.storyboard */; };
@@ -183,6 +189,10 @@
 		CAC9A75A98A536946D95C7B8 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		CCEFEB61E61DFEA9404389C2 /* libPods-DomainTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0BBF34FB65AB79055435B2 /* Pods_AppleMusicKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusicKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D946B74D21A59BAD006568FA /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIs+AppleMusicKit.swift"; sourceTree = "<group>"; };
+		D946B75221A5A387006568FA /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
+		D946B75421A5A597006568FA /* AppSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionRepository.swift; sourceTree = "<group>"; };
 		D94D3B3121A16D6400B241CB /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		D94D3B3321A16E0300B241CB /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D94D3B3421A16E0300B241CB /* EditorialNotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorialNotes.swift; sourceTree = "<group>"; };
@@ -203,6 +213,8 @@
 		D94D3B5521A172DB00B241CB /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		D94D3B5721A18CCE00B241CB /* Entity+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entity+AppleMusicKit.swift"; sourceTree = "<group>"; };
 		D94D3BE721A3F54400B241CB /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
+		D9C47B9621A5B375002B053D /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		D9C47B9921A5B697002B053D /* LaunchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchReactor.swift; sourceTree = "<group>"; };
 		D9DAF2152190838900B8FDD4 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DAF2172190838900B8FDD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9DAF2192190838900B8FDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -369,20 +381,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		D946B74F21A59C4F006568FA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D946B75421A5A597006568FA /* AppSessionRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		D94D3B2821A1206A00B241CB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D94D3B2A21A1223300B241CB /* Model */,
-				D94D3B2921A1210B00B241CB /* Repository */,
+				D946B74F21A59C4F006568FA /* Repository */,
+				D946B74D21A59BAD006568FA /* DomainError.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		D94D3B2921A1210B00B241CB /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 		D94D3B2A21A1223300B241CB /* Model */ = {
@@ -390,6 +404,7 @@
 			children = (
 				D94D3B3121A16D6400B241CB /* Entity.swift */,
 				D94D3B2D21A127A500B241CB /* AppleMusic */,
+				D946B75221A5A387006568FA /* AppSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,6 +449,31 @@
 			path = AppleMusic;
 			sourceTree = "<group>";
 		};
+		D9C47B9421A5AE16002B053D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D9C47B9821A5B67F002B053D /* LaunchView */,
+				D9C47B9521A5B365002B053D /* LoginView */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		D9C47B9521A5B365002B053D /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				D9C47B9621A5B375002B053D /* LoginReactor.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		D9C47B9821A5B67F002B053D /* LaunchView */ = {
+			isa = PBXGroup;
+			children = (
+				D9C47B9921A5B697002B053D /* LaunchReactor.swift */,
+			);
+			path = LaunchView;
+			sourceTree = "<group>";
+		};
 		D9DAF1EF21907B7800B8FDD4 = {
 			isa = PBXGroup;
 			children = (
@@ -471,6 +511,7 @@
 		D9DAF2162190838900B8FDD4 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D9C47B9421A5AE16002B053D /* Sources */,
 				D9DAF2172190838900B8FDD4 /* AppDelegate.swift */,
 				D9DAF2192190838900B8FDD4 /* ViewController.swift */,
 				D9DAF21B2190838900B8FDD4 /* Main.storyboard */,
@@ -562,6 +603,7 @@
 				D94D3B5121A1727000B241CB /* Model */,
 				D9DAF2B921A0A31F00B8FDD4 /* Session.swift */,
 				D9DAF2B721A09F6F00B8FDD4 /* Infrastructure.swift */,
+				D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1139,7 +1181,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */,
+				D9C47B9A21A5B697002B053D /* LaunchReactor.swift in Sources */,
 				D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */,
+				D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1163,6 +1207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D946B75321A5A387006568FA /* AppSession.swift in Sources */,
 				D94D3B4C21A16E0600B241CB /* Storefront.swift in Sources */,
 				D94D3B4421A16E0600B241CB /* Artwork.swift in Sources */,
 				D94D3B4E21A16E0600B241CB /* AppleCurator.swift in Sources */,
@@ -1178,6 +1223,8 @@
 				D94D3B4F21A16E0600B241CB /* Playlist.swift in Sources */,
 				D94D3B3221A16D6400B241CB /* Entity.swift in Sources */,
 				D94D3B4921A16E0600B241CB /* Artist.swift in Sources */,
+				D946B75521A5A597006568FA /* AppSessionRepository.swift in Sources */,
+				D946B74E21A59BAD006568FA /* DomainError.swift in Sources */,
 				D94D3B4B21A16E0600B241CB /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1194,6 +1241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */,
 				D94D3B5621A172DB00B241CB /* Entity.swift in Sources */,
 				D94D3B5421A1729700B241CB /* Storefront.swift in Sources */,
 				D9DAF2BA21A0A31F00B8FDD4 /* Session.swift in Sources */,

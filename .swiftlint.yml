@@ -2,3 +2,7 @@ excluded:
   - Carthage
   - Pods
   - support
+
+identifier_name:
+  excluded:
+    - id

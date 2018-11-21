@@ -34,3 +34,7 @@ extension Identifiable where Self.IdentifierRawValue: Hashable {
 //
 // MARK: -
 public protocol Entity: Identifiable {}
+
+extension Entity {
+    public typealias NotFound = DomainError.NotFound<Self>
+}
