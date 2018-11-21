@@ -28,7 +28,12 @@ target 'Utility' do
         pod 'SwiftLint'
 
         script_phase :name => 'Run SwiftLint',
-                     :script => '"${PODS_ROOT}/SwiftLint/swiftlint" autocorrect',
+                     :script => (
+                       <<~EOS
+                       "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect
+                       "${PODS_ROOT}/SwiftLint/swiftlint"
+                       EOS
+                     ),
                      :execution_position => :before_compile
 
         target 'AppTests' do
@@ -57,5 +62,16 @@ target 'Utility' do
   target 'UtilityTests' do
     inherit! :search_paths
     # Pods for testing
+  end
+end
+
+post_install do |installer|
+  installer.aggregate_targets.each do |target|
+    target.xcconfigs.each do |name, file|
+      file.other_linker_flags[:simple] << '-all_load'
+
+      xcconfig_path = target.xcconfig_path(name)
+      file.save_as(xcconfig_path)
+    end
   end
 end
