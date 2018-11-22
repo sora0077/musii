@@ -23,4 +23,6 @@ extension Reactor {
         reduce(state: &state, mutation: mutation)
         return state
     }
+
+    public func reduce(state: inout State, mutation: Mutation) {}
 }

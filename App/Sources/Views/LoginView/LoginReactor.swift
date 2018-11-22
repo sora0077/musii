@@ -1,5 +1,5 @@
 //
-//  LaunchReactor.swift
+//  LoginReactor.swift
 //  App
 //
 //  Created by 林達也 on 2018/11/22.
@@ -7,9 +7,9 @@
 //
 
 import Foundation
-import ReactorKit
+import ApplicationService
 
-final class LaunchReactor: Reactor {
+final class LoginReactor: Reactor {
     enum Action {
 
     }

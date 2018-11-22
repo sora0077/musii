@@ -12,14 +12,19 @@ import RxSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var dependency: AppDependency!
+
     var window: UIWindow?
 
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        // Override point for customization after application launch.
-        print(Single<Int>.self)
+
+        dependency = dependency ?? CompositionRoot.resolve()
+
+        window = dependency.window
+
         return true
     }
 }
