@@ -20,28 +20,39 @@ target 'Utility' do
       pod 'Alamofire'
       pod 'RealmSwift'
 
-      target 'App' do
+      target 'ApplicationService' do
         inherit! :search_paths
 
-        # Pods for App
         pod 'ReactorKit'
-        pod 'SwiftLint'
 
-        script_phase :name => 'Run SwiftLint',
-                     :script => (
-                       <<~EOS
-                       "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect
-                       "${PODS_ROOT}/SwiftLint/swiftlint"
-                       EOS
-                     ),
-                     :execution_position => :before_compile
-
-        target 'AppTests' do
+        target 'App' do
           inherit! :search_paths
-          # Pods for testing
+
+          # Pods for App
+          pod 'SwiftLint'
+
+          script_phase :name => 'Run SwiftLint',
+                       :script => (
+                         <<~EOS
+                         "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect
+                         "${PODS_ROOT}/SwiftLint/swiftlint"
+                         EOS
+                       ),
+                       :execution_position => :before_compile
+
+          target 'AppTests' do
+            inherit! :search_paths
+            # Pods for testing
+          end
+
+          target 'AppUITests' do
+            inherit! :search_paths
+            # Pods for testing
+          end
         end
 
-        target 'AppUITests' do
+
+        target 'ApplicationServiceTests' do
           inherit! :search_paths
           # Pods for testing
         end
