@@ -27,9 +27,12 @@ final class GatewayReactor: Reactor {
     }
     enum Mutation {
         case setBootSequence(BootSequence)
+        case setTrigger(Trigger, applicationState: UIApplication.State)
     }
     struct State {
         var bootSequence: BootSequence = .off
+        var trigger: Trigger = .default
+        var applicationState: UIApplication.State = .background
     }
 
     var initialState: State { return .init() }
@@ -41,18 +44,17 @@ final class GatewayReactor: Reactor {
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
+        guard case let .open(trigger, applicationState) = action else { return .empty() }
         switch currentState.bootSequence {
         case .off:
             return .concat([
+                .just(.setTrigger(trigger, applicationState: applicationState)),
                 .just(.setBootSequence(.booting)),
                 bootedSignal.map { .setBootSequence(.ready) }
             ])
 
-        case .booting:
-            return .empty()
-
-        case .ready:
-            return .empty()
+        case .booting, .ready:
+            return .just(.setTrigger(trigger, applicationState: applicationState))
         }
     }
 
@@ -60,6 +62,10 @@ final class GatewayReactor: Reactor {
         switch mutation {
         case .setBootSequence(let bootSequence):
             state.bootSequence = bootSequence
+
+        case .setTrigger(let trigger, let applicationState):
+            state.trigger = trigger
+            state.applicationState = applicationState
         }
     }
 }

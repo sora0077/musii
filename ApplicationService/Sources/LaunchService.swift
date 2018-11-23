@@ -23,6 +23,6 @@ extension ApplicationServiceProvider {
 private final class LaunchServiceImpl: LaunchService {
 
     func launch() -> Single<Void> {
-        return Single.just(())//.delay(0.1, scheduler: MainScheduler.instance)
+        return Single.just(())//.delay(3.1, scheduler: MainScheduler.instance)
     }
 }

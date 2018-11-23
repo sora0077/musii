@@ -29,21 +29,31 @@ final class GatewayViewController: UIViewController, View {
     }
 
     func bind(reactor: GatewayReactor) {
-        rx.sentMessage(#selector(viewDidAppear))
+        rx.sentMessage(#selector(viewDidLoad))
             .take(1)
             .map { _ in Reactor.Action.open(with: .default, applicationState: .active) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
 
-        reactor.state.map { $0.bootSequence }
-            .distinctUntilChanged()
+        let bootSequence = reactor.state.map { $0.bootSequence }
+
+        bootSequence
             .map { $0 == .booting }
+            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] in
                 if $0 {
                     self?.presentLaunchView()
                 } else {
                     self?.dismissLaunchView()
                 }
+            })
+            .disposed(by: disposeBag)
+
+        bootSequence
+            .filter { $0 == .ready }
+            .withLatestFrom(reactor.state.map { ($0.trigger, $0.applicationState) })
+            .subscribe(onNext: { [weak self] in
+                print($0)
             })
             .disposed(by: disposeBag)
     }
