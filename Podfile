@@ -1,6 +1,14 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '11.0'
 
+plugin 'cocoapods-keys', {
+  :project => "müsii",
+  :keys => [
+    "GithubClientId",
+    "GithubClientSecret"
+  ]
+}
+
 use_modular_headers!
 
 target 'Utility' do

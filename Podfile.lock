@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.3)
+  - Keys (1.0.1)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
   - Realm (3.11.2):
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Keys (from `Pods/CocoaPodsKeys`)
   - ReactorKit
   - RealmSwift
   - RxCocoa
@@ -36,8 +38,13 @@ SPEC REPOS:
     - SwiftLint
     - Tagged
 
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
+
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Keys: a576f4c9c1c641ca913a959a9c62ed3f215a8de9
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
   RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
@@ -47,6 +54,6 @@ SPEC CHECKSUMS:
   SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
   Tagged: 20ad99855b2d2bdfff0b9d6937ff4f2a123489fa
 
-PODFILE CHECKSUM: 754039cb5cbbe5fb7ff4e1ceb18854948ac215f1
+PODFILE CHECKSUM: d128c3931c91c28f982fccd8becd988d4b839c4c
 
 COCOAPODS: 1.6.0.beta.2

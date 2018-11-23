@@ -8,6 +8,7 @@
 
 import UIKit
 import ApplicationService
+import Keys
 
 struct AppDependency {
     typealias OpenURLHandler = (URL, UIApplication.State) -> Bool

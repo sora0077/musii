@@ -13,12 +13,12 @@ final class GatewayViewController: UIViewController, View {
 
     var disposeBag = DisposeBag()
 
-    private let launchView: () -> LaunchViewController
+    private let launchView: () -> UIViewController
 
-    private weak var launchViewController: LaunchViewController?
+    private weak var launchViewController: UIViewController?
 
     init(reactor: GatewayReactor,
-         launchView: @escaping () -> LaunchViewController) {
+         launchView: @escaping () -> UIViewController) {
         defer { self.reactor = reactor }
         self.launchView = launchView
         super.init(nibName: nil, bundle: nil)
