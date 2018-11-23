@@ -8,6 +8,8 @@ PODS:
   - RealmSwift (3.11.2):
     - Realm (= 3.11.2)
   - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
   - SwiftLint (0.28.0)
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - Alamofire
   - ReactorKit
   - RealmSwift
+  - RxCocoa
   - RxSwift
   - SwiftLint
   - Tagged
@@ -28,6 +31,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - RxAtomic
+    - RxCocoa
     - RxSwift
     - SwiftLint
     - Tagged
@@ -38,10 +42,11 @@ SPEC CHECKSUMS:
   Realm: 864477d028db77f7c5a0cba64a4892ad53db128a
   RealmSwift: 12b8262fc08020b47de4fd88eb3d5c9425b34ec7
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SwiftLint: 088cfacb75b45970017e62b7524d506776d60148
   Tagged: 20ad99855b2d2bdfff0b9d6937ff4f2a123489fa
 
-PODFILE CHECKSUM: 149cf26016865d3b4bca83daa64ee8c99d12720d
+PODFILE CHECKSUM: 754039cb5cbbe5fb7ff4e1ceb18854948ac215f1
 
 COCOAPODS: 1.6.0.beta.2

@@ -21,6 +21,7 @@
 		D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */; };
 		D946B75321A5A387006568FA /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75221A5A387006568FA /* AppSession.swift */; };
 		D946B75521A5A597006568FA /* AppSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75421A5A597006568FA /* AppSessionRepository.swift */; };
+		D948484521A7BF6B009B3823 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948484421A7BF6B009B3823 /* LaunchViewController.swift */; };
 		D94D3B3221A16D6400B241CB /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3121A16D6400B241CB /* Entity.swift */; };
 		D94D3B4221A16E0600B241CB /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3321A16E0300B241CB /* Song.swift */; };
 		D94D3B4321A16E0600B241CB /* EditorialNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3B3421A16E0300B241CB /* EditorialNotes.swift */; };
@@ -60,6 +61,8 @@
 		D9C47BDF21A706F6002B053D /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BDE21A706F6002B053D /* AppDependency.swift */; };
 		D9C47BE121A70751002B053D /* GatewayReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE021A70751002B053D /* GatewayReactor.swift */; };
 		D9C47BE321A7075D002B053D /* GatewayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE221A7075D002B053D /* GatewayViewController.swift */; };
+		D9C47BE521A725C3002B053D /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE421A725C3002B053D /* LaunchService.swift */; };
+		D9C47BE721A725F9002B053D /* ApplicationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */; };
 		D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2172190838900B8FDD4 /* AppDelegate.swift */; };
 		D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2192190838900B8FDD4 /* ViewController.swift */; };
 		D9DAF21F2190838B00B8FDD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DAF21E2190838B00B8FDD4 /* Assets.xcassets */; };
@@ -265,6 +268,7 @@
 		D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIs+AppleMusicKit.swift"; sourceTree = "<group>"; };
 		D946B75221A5A387006568FA /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
 		D946B75421A5A597006568FA /* AppSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSessionRepository.swift; sourceTree = "<group>"; };
+		D948484421A7BF6B009B3823 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		D94D3B3121A16D6400B241CB /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		D94D3B3321A16E0300B241CB /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		D94D3B3421A16E0300B241CB /* EditorialNotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorialNotes.swift; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 		D9C47BDE21A706F6002B053D /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		D9C47BE021A70751002B053D /* GatewayReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayReactor.swift; sourceTree = "<group>"; };
 		D9C47BE221A7075D002B053D /* GatewayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayViewController.swift; sourceTree = "<group>"; };
+		D9C47BE421A725C3002B053D /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationServiceProvider.swift; sourceTree = "<group>"; };
 		D9DAF2152190838900B8FDD4 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DAF2172190838900B8FDD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9DAF2192190838900B8FDD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -581,6 +587,7 @@
 			isa = PBXGroup;
 			children = (
 				D9C47B9921A5B697002B053D /* LaunchReactor.swift */,
+				D948484421A7BF6B009B3823 /* LaunchViewController.swift */,
 			);
 			path = LaunchView;
 			sourceTree = "<group>";
@@ -607,7 +614,9 @@
 		D9C47BC521A6CCE6002B053D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */,
 				D9C47BC621A6CCF2002B053D /* Reactor.swift */,
+				D9C47BE421A725C3002B053D /* LaunchService.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -1467,7 +1476,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C47BE521A725C3002B053D /* LaunchService.swift in Sources */,
 				D9C47BC721A6CCF2002B053D /* Reactor.swift in Sources */,
+				D9C47BE721A725F9002B053D /* ApplicationServiceProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1490,6 +1501,7 @@
 				D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */,
 				D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */,
 				D9C47BE321A7075D002B053D /* GatewayViewController.swift in Sources */,
+				D948484521A7BF6B009B3823 /* LaunchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

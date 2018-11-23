@@ -11,11 +11,50 @@ import ApplicationService
 
 final class LaunchReactor: Reactor {
     enum Action {
-
+        case launch
+    }
+    enum Mutation {
+        case setLaunched
+        case setLoading(Bool)
     }
     struct State {
-
+        var launched: Bool = false
+        var isLoading: Bool = false
     }
 
+    let didLaunch = PublishSubject<Void>()
+
     var initialState: State { return .init() }
+
+    private let launchService: LaunchService
+
+    init(launchService: LaunchService) {
+        self.launchService = launchService
+    }
+
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .launch:
+            return .concat([
+                Observable.just(.setLoading(true)),
+                launchService.launch().asObservable()
+                    .map { .setLaunched }
+                    .catchError { _ in .empty() },
+                Observable.just(.setLoading(false))
+                    .do(onNext: { [weak self] _ in
+                        self?.didLaunch.onNext(())
+                    })
+            ])
+        }
+    }
+
+    func reduce(state: inout State, mutation: Mutation) {
+        switch mutation {
+        case .setLaunched:
+            state.launched = true
+
+        case .setLoading(let value):
+            state.isLoading = value
+        }
+    }
 }

@@ -7,9 +7,9 @@
 //
 
 import Foundation
+@_exported import RxSwift
+@_exported import RxCocoa
 @_exported import ReactorKit
-@_exported import class RxSwift.Observable
-@_exported import class RxSwift.DisposeBag
 
 public protocol Reactor: ReactorKit.Reactor {
 

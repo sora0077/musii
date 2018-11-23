@@ -10,7 +10,10 @@ import UIKit
 import ApplicationService
 
 struct AppDependency {
+    typealias OpenURLHandler = (URL, UIApplication.State) -> Bool
+
     let window: UIWindow
+    let openURLHandler: OpenURLHandler
 }
 
 final class CompositionRoot {
@@ -18,14 +21,26 @@ final class CompositionRoot {
     static func resolve() -> AppDependency {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
-        let gatewayReactor = GatewayReactor()
-        let gatewayViewController = GatewayViewController(reactor: gatewayReactor)
+        let launchService = ApplicationServiceProvider.launchService()
+        let launchReactor = LaunchReactor(launchService: launchService)
+
+        let gatewayReactor = GatewayReactor(bootedSignal: launchReactor.didLaunch)
+        let gatewayViewController = GatewayViewController(
+            reactor: gatewayReactor,
+            launchView: {
+                LaunchViewController(reactor: launchReactor)
+            }
+        )
 
         window.rootViewController = gatewayViewController
         window.makeKeyAndVisible()
 
         return AppDependency(
-            window: window
+            window: window,
+            openURLHandler: { [weak gatewayReactor] url, state in
+                gatewayReactor?.action.onNext(.open(with: .openURL(url), applicationState: state))
+                return true
+            }
         )
     }
 }

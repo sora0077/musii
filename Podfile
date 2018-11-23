@@ -24,6 +24,7 @@ target 'Utility' do
         inherit! :search_paths
 
         pod 'ReactorKit'
+        pod 'RxCocoa'
 
         target 'App' do
           inherit! :search_paths
