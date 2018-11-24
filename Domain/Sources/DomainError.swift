@@ -8,6 +8,10 @@
 
 import Foundation
 
+func abstract() -> Never {
+    fatalError("abstract")
+}
+
 public enum DomainError: Error {
 
     public struct NotFound<E>: Error {

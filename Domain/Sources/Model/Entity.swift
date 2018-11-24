@@ -9,10 +9,6 @@
 import Foundation
 @_exported import Tagged
 
-func abstract() -> Never {
-    fatalError("abstract")
-}
-
 public protocol Identifiable: Hashable {
     associatedtype IdentifierTag
     associatedtype IdentifierRawValue

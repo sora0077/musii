@@ -13,6 +13,7 @@ use_modular_headers!
 
 target 'Utility' do
   # Pods for Utility
+  pod 'FoundationSupport/Core', :git => 'https://github.com/sora0077/FoundationSupport.git'
 
   target 'Domain' do
     inherit! :search_paths
@@ -27,6 +28,9 @@ target 'Utility' do
       # Pods for Infrastructure
       pod 'Alamofire'
       pod 'RealmSwift'
+      pod 'DeepLinkKit'
+      pod 'Firebase/Core'
+      pod 'Firebase/Auth'
 
       target 'ApplicationService' do
         inherit! :search_paths

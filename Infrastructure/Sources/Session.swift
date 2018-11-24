@@ -7,11 +7,18 @@
 //
 
 import Foundation
+import Domain
 import RxSwift
 import AppleMusicKit
 import Alamofire
 
-final class SessionImpl {
+protocol NetworkSession {
+
+    func send<Req: AppleMusicKit.Request>(_ request: Req) -> Single<Req.Response>
+    func send<Req: OAuth.Request>(_ request: Req) -> Single<Req.Response>
+}
+
+final class SessionImpl: NetworkSession {
 
     var authorization: Authorization?
 
@@ -49,5 +56,9 @@ final class SessionImpl {
                 req?.cancel()
             }
         })
+    }
+
+    func send<Req: OAuth.Request>(_ request: Req) -> Single<Req.Response> {
+        return request.dataRequest(from: manager)
     }
 }
