@@ -13,6 +13,8 @@ use_modular_headers!
 
 target 'Utility' do
   # Pods for Utility
+  pod 'Fabric'
+  pod 'Crashlytics'
   pod 'FoundationSupport', :git => 'https://github.com/sora0077/FoundationSupport.git'
 
   target 'Domain' do
@@ -47,14 +49,22 @@ target 'Utility' do
           # Pods for App
           pod 'SwiftLint'
 
-          script_phase :name => 'Run SwiftLint',
-                       :script => (
-                         <<~EOS
-                         "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect
-                         "${PODS_ROOT}/SwiftLint/swiftlint"
-                         EOS
-                       ),
-                       :execution_position => :before_compile
+          begin
+            script = <<~EOS
+            "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect
+            "${PODS_ROOT}/SwiftLint/swiftlint"
+            EOS
+
+            script_phase :name => 'Run SwiftLint', :script => script, :execution_position => :before_compile
+          end
+
+          begin
+            script = <<~EOS
+            "${PODS_ROOT}/Fabric/run"
+            EOS
+
+            script_phase :name => 'Run Fabric', :script => script, :input_files => ['$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)']
+          end
 
           target 'AppTests' do
             inherit! :search_paths
