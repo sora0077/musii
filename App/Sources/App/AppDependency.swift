@@ -23,13 +23,14 @@ final class CompositionRoot {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
         let launchService = ApplicationServiceProvider.launchService()
-        let launchReactor = LaunchReactor(launchService: launchService)
 
-        let gatewayReactor = GatewayReactor(bootedSignal: launchReactor.didLaunch)
+        let gatewayReactor = GatewayReactor()
         let gatewayViewController = GatewayViewController(
             reactor: gatewayReactor,
             launchView: {
-                LaunchViewController(reactor: launchReactor)
+                LaunchViewController(
+                    reactor: LaunchReactor(launchService: launchService)
+                )
             }
         )
 

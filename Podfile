@@ -38,13 +38,13 @@ target 'Utility' do
         pod 'ReactorKit'
         pod 'RxCocoa'
         pod 'UIKitSupport', :git => 'https://github.com/sora0077/FoundationSupport.git'
+        pod 'Constraint', :git => 'https://github.com/sora0077/Constraint.git'
 
         target 'App' do
           inherit! :search_paths
 
           # Pods for App
           pod 'SwiftLint'
-          pod 'Constraint', :git => 'https://github.com/sora0077/Constraint.git'
 
           script_phase :name => 'Run SwiftLint',
                        :script => (

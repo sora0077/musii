@@ -10,6 +10,8 @@ import Foundation
 @_exported import RxSwift
 @_exported import RxCocoa
 @_exported import ReactorKit
+@_exported import UIKitSupport
+@_exported import Constraint
 
 public protocol Reactor: ReactorKit.Reactor {
 

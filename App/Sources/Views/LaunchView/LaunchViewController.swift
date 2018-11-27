@@ -13,6 +13,8 @@ final class LaunchViewController: UIViewController, View {
 
     var disposeBag = DisposeBag()
 
+    fileprivate let didLaunch = PublishSubject<Void>()
+
     init(reactor: LaunchReactor) {
         defer { self.reactor = reactor }
         super.init(nibName: nil, bundle: nil)
@@ -22,22 +24,45 @@ final class LaunchViewController: UIViewController, View {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func bind(reactor: LaunchReactor) {
-        rx.sentMessage(#selector(viewDidAppear))
-            .map { _ in Reactor.Action.launch }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-
-        reactor.state.map { $0.isLoading }
-            .subscribe(onNext: { [weak self] isLoading in
-                self?.view.backgroundColor = isLoading ? .red : .blue
-            })
-            .disposed(by: disposeBag)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
+        if let vc = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController() {
+            view.addSubview(vc.view)
+            constrain(vc.view) { view in
+                view.edge.equalTo(view.superview.edge)
+            }
+            addChild(vc)
+            vc.didMove(toParent: self)
+        }
+    }
+
+    func bind(reactor: LaunchReactor) {
+        // input
+        reactor.state.map { $0.isLoading }
+            .subscribe(onNext: { [weak self] _ in
+
+            })
+            .disposed(by: disposeBag)
+
+        reactor.state.map { $0.launched }
+            .distinctUntilChanged()
+            .filter { $0 }
+            .map { _ in }
+            .bind(to: didLaunch)
+            .disposed(by: disposeBag)
+
+        // output
+        rx.viewDidAppear
+            .take(1)
+            .map { _ in Reactor.Action.launch }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base == LaunchViewController {
+    var didLaunch: ControlEvent<Void> {
+        return ControlEvent(events: base.didLaunch)
     }
 }

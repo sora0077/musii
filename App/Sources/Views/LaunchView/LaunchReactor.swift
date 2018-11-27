@@ -22,8 +22,6 @@ final class LaunchReactor: Reactor {
         var isLoading: Bool = false
     }
 
-    let didLaunch = PublishSubject<Void>()
-
     var initialState: State { return .init() }
 
     private let launchService: LaunchService
@@ -36,14 +34,11 @@ final class LaunchReactor: Reactor {
         switch action {
         case .launch:
             return .concat([
-                Observable.just(.setLoading(true)),
+                .just(.setLoading(true)),
                 launchService.launch().asObservable()
                     .map { .setLaunched }
                     .catchError { _ in .empty() },
-                Observable.just(.setLoading(false))
-                    .do(onNext: { [weak self] _ in
-                        self?.didLaunch.onNext(())
-                    })
+                .just(.setLoading(false))
             ])
         }
     }

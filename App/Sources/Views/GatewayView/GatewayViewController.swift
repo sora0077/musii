@@ -13,14 +13,14 @@ final class GatewayViewController: UIViewController, View {
 
     var disposeBag = DisposeBag()
 
-    private let launchView: () -> UIViewController
+    private let createLaunchView: () -> LaunchViewController
 
     private weak var launchViewController: UIViewController?
 
     init(reactor: GatewayReactor,
-         launchView: @escaping () -> UIViewController) {
+         launchView: @escaping () -> LaunchViewController) {
         defer { self.reactor = reactor }
-        self.launchView = launchView
+        self.createLaunchView = launchView
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -28,38 +28,74 @@ final class GatewayViewController: UIViewController, View {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let vc = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController() {
+            view.addSubview(vc.view)
+            constrain(vc.view) { view in
+                view.edge.equalTo(view.superview.edge)
+            }
+            addChild(vc)
+            vc.didMove(toParent: self)
+        }
+    }
+
     func bind(reactor: GatewayReactor) {
-        rx.sentMessage(#selector(viewDidLoad))
-            .take(1)
-            .map { _ in Reactor.Action.open(with: .default, applicationState: .active) }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-
-        let bootSequence = reactor.state.map { $0.bootSequence }
-
-        bootSequence
-            .map { $0 == .booting }
+        // input
+        reactor.state.map { $0.bootSequence }
             .distinctUntilChanged()
-            .subscribe(onNext: { [weak self] in
-                if $0 {
-                    self?.presentLaunchView()
-                } else {
-                    self?.dismissLaunchView()
-                }
+            .bind(to: Binder(self) { vc, bootSequence in
+                vc.handleViewController(with: bootSequence)
             })
             .disposed(by: disposeBag)
 
-        bootSequence
-            .filter { $0 == .ready }
-            .withLatestFrom(reactor.state.map { ($0.trigger, $0.applicationState) })
+        reactor.state.map { $0.trigger }
+            .filterNil()
+            .distinctUntilChanged { $0 == $1 }
             .subscribe(onNext: { [weak self] in
                 print($0)
             })
             .disposed(by: disposeBag)
+
+        // output
+        rx.viewDidAppear
+            .take(1)
+            .map { _ in Reactor.Action.boot }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+
+    private func handleViewController(with bootSequence: GatewayReactor.BootSequence) {
+        if let presented = presentedViewController {
+            presented.dismiss(animated: true) {
+                self.handleViewController(with: bootSequence)
+            }
+            return
+        }
+
+        guard let reactor = reactor else { return }
+
+        switch bootSequence {
+        case .off:
+            break
+
+        case .booting:
+            let vc = createLaunchView()
+            vc.rx.didLaunch
+                .map { Reactor.Action.ready }
+                .bind(to: reactor.action)
+                .disposed(by: disposeBag)
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: false, completion: nil)
+
+        case .ready:
+            break
+        }
     }
 
     private func presentLaunchView() {
-        let vc = launchView()
+        let vc = createLaunchView()
         launchViewController = vc
 
         vc.view.frame = view.bounds

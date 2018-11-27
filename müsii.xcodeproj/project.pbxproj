@@ -44,6 +44,7 @@
 		D94D3BE821A3F54400B241CB /* dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94D3BE721A3F54400B241CB /* dummy.swift */; };
 		D962EE5A21A8EEF30059EB63 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE5921A8EEF30059EB63 /* OAuth.swift */; };
 		D962EE5D21A90F9D0059EB63 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE5C21A90F9D0059EB63 /* OAuth.swift */; };
+		D962EE6121AD89AB0059EB63 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6021AD89AB0059EB63 /* Utility.swift */; };
 		D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
 		D98804AD21A4560200125F74 /* AppleMusicKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47B9621A5B375002B053D /* LoginReactor.swift */; };
@@ -293,6 +294,7 @@
 		D94D3BE721A3F54400B241CB /* dummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dummy.swift; sourceTree = "<group>"; };
 		D962EE5921A8EEF30059EB63 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		D962EE5C21A90F9D0059EB63 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		D962EE6021AD89AB0059EB63 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		D9C47B9621A5B375002B053D /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		D9C47B9921A5B697002B053D /* LaunchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchReactor.swift; sourceTree = "<group>"; };
 		D9C47BA021A6CC75002B053D /* ApplicationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApplicationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -592,6 +594,7 @@
 			children = (
 				D9C47BDD21A706B1002B053D /* App */,
 				D9C47BDB21A70409002B053D /* Views */,
+				D962EE6021AD89AB0059EB63 /* Utility.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 			children = (
 				D9DAF2172190838900B8FDD4 /* AppDelegate.swift */,
 				D9C47BDE21A706F6002B053D /* AppDependency.swift */,
+				D9DAF2202190838B00B8FDD4 /* LaunchScreen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -714,7 +718,6 @@
 				D9C47B9421A5AE16002B053D /* Sources */,
 				D9DAF2192190838900B8FDD4 /* ViewController.swift */,
 				D9DAF21E2190838B00B8FDD4 /* Assets.xcassets */,
-				D9DAF2202190838B00B8FDD4 /* LaunchScreen.storyboard */,
 				D9DAF2232190838B00B8FDD4 /* Info.plist */,
 			);
 			path = App;
@@ -1518,6 +1521,7 @@
 			files = (
 				D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */,
 				D9C47BE121A70751002B053D /* GatewayReactor.swift in Sources */,
+				D962EE6121AD89AB0059EB63 /* Utility.swift in Sources */,
 				D9C47BDF21A706F6002B053D /* AppDependency.swift in Sources */,
 				D9C47B9A21A5B697002B053D /* LaunchReactor.swift in Sources */,
 				D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */,

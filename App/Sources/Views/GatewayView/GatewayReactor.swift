@@ -11,18 +11,19 @@ import UserNotifications
 import ApplicationService
 
 final class GatewayReactor: Reactor {
-    enum Trigger {
-        case `default`
+    enum Trigger: Equatable {
         case openURL(URL)
         case universalLink(URL)
         case notification(UNNotificationResponse)
     }
-    enum BootSequence {
+    enum BootSequence: Equatable {
         case off
         case booting
         case ready
     }
     enum Action {
+        case boot
+        case ready
         case open(with: Trigger, applicationState: UIApplication.State)
     }
     enum Mutation {
@@ -31,30 +32,24 @@ final class GatewayReactor: Reactor {
     }
     struct State {
         var bootSequence: BootSequence = .off
-        var trigger: Trigger = .default
-        var applicationState: UIApplication.State = .background
+        var trigger: (mode: Trigger, applicationState: UIApplication.State)? {
+            return bootSequence == .ready ? _trigger : nil
+        }
+        fileprivate var _trigger: (mode: Trigger, applicationState: UIApplication.State)?
     }
 
     var initialState: State { return .init() }
 
-    private let bootedSignal: Observable<Void>
-
-    init(bootedSignal: Observable<Void>) {
-        self.bootedSignal = bootedSignal
-    }
-
     func mutate(action: Action) -> Observable<Mutation> {
-        guard case let .open(trigger, applicationState) = action else { return .empty() }
-        switch currentState.bootSequence {
-        case .off:
-            return .concat([
-                .just(.setTrigger(trigger, applicationState: applicationState)),
-                .just(.setBootSequence(.booting)),
-                bootedSignal.map { .setBootSequence(.ready) }
-            ])
+        switch action {
+        case .boot:
+            return .just(.setBootSequence(.booting))
 
-        case .booting, .ready:
-            return .just(.setTrigger(trigger, applicationState: applicationState))
+        case .ready:
+            return .just(.setBootSequence(.ready))
+
+        case .open(with: let trigger, applicationState: let state):
+            return .just(.setTrigger(trigger, applicationState: state))
         }
     }
 
@@ -64,8 +59,7 @@ final class GatewayReactor: Reactor {
             state.bootSequence = bootSequence
 
         case .setTrigger(let trigger, let applicationState):
-            state.trigger = trigger
-            state.applicationState = applicationState
+            state._trigger = (trigger, applicationState)
         }
     }
 }
