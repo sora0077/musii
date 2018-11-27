@@ -32,6 +32,9 @@ final class CompositionRoot {
                 LaunchViewController(
                     reactor: LaunchReactor(launchUseCase: launchUseCase)
                 )
+            },
+            rootView: {
+                RootViewController(reactor: RootReactor())
             }
         )
 

@@ -14,13 +14,16 @@ final class GatewayViewController: UIViewController, View {
     var disposeBag = DisposeBag()
 
     private let createLaunchView: () -> LaunchViewController
+    private let createRootView: () -> RootViewController
 
-    private weak var launchViewController: UIViewController?
+    private weak var rootViewController: RootViewController?
 
     init(reactor: GatewayReactor,
-         launchView: @escaping () -> LaunchViewController) {
+         launchView: @escaping () -> LaunchViewController,
+         rootView: @escaping () -> RootViewController) {
         defer { self.reactor = reactor }
-        self.createLaunchView = launchView
+        createLaunchView = launchView
+        createRootView = rootView
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -53,8 +56,8 @@ final class GatewayViewController: UIViewController, View {
         reactor.state.map { $0.trigger }
             .filterNil()
             .distinctUntilChanged { $0 == $1 }
-            .subscribe(onNext: { [weak self] in
-                print($0)
+            .bind(to: Binder(self) { vc, args in
+                vc.handleTrigger(args.mode, applicationState: args.applicationState)
             })
             .disposed(by: disposeBag)
 
@@ -68,7 +71,7 @@ final class GatewayViewController: UIViewController, View {
 
     private func handleViewController(with bootSequence: GatewayReactor.BootSequence) {
         if let presented = presentedViewController {
-            presented.dismiss(animated: true) {
+            presented.dismiss(animated: !(presented is LaunchViewController)) {
                 self.handleViewController(with: bootSequence)
             }
             return
@@ -90,37 +93,14 @@ final class GatewayViewController: UIViewController, View {
             present(vc, animated: false, completion: nil)
 
         case .ready:
-            break
+            let vc = createRootView()
+            rootViewController = vc
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true, completion: nil)
         }
     }
 
-    private func presentLaunchView() {
-        let vc = createLaunchView()
-        launchViewController = vc
+    private func handleTrigger(_ trigger: GatewayReactor.Trigger, applicationState: UIApplication.State) {
 
-        vc.view.frame = view.bounds
-        vc.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(vc.view)
-        addChild(vc)
-        vc.didMove(toParent: self)
-
-        vc.view.alpha = 0
-        UIView.animate(withDuration: 0.1, animations: { vc.view.alpha = 1 })
-    }
-
-    private func dismissLaunchView() {
-        guard let vc = launchViewController else { return }
-
-        vc.willMove(toParent: nil)
-
-        UIView.animate(
-            withDuration: 0.1,
-            animations: {
-                vc.view.alpha = 0
-            },
-            completion: { _ in
-                vc.view.removeFromSuperview()
-                vc.removeFromParent()
-            })
     }
 }
