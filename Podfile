@@ -31,6 +31,7 @@ target 'Utility' do
       pod 'DeepLinkKit'
       pod 'Firebase/Core'
       pod 'Firebase/Auth'
+      pod 'Firebase/RemoteConfig'
 
       target 'ApplicationService' do
         inherit! :search_paths

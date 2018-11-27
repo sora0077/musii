@@ -45,6 +45,10 @@
 		D962EE5A21A8EEF30059EB63 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE5921A8EEF30059EB63 /* OAuth.swift */; };
 		D962EE5D21A90F9D0059EB63 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE5C21A90F9D0059EB63 /* OAuth.swift */; };
 		D962EE6121AD89AB0059EB63 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6021AD89AB0059EB63 /* Utility.swift */; };
+		D962EE6321AD9C760059EB63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D962EE6221AD9C760059EB63 /* GoogleService-Info.plist */; };
+		D962EE6621AD9DB60059EB63 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6521AD9DB60059EB63 /* LaunchService.swift */; };
+		D962EE6921AD9EAC0059EB63 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6821AD9EAC0059EB63 /* LaunchService.swift */; };
+		D962EE6B21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6A21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift */; };
 		D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
 		D98804AD21A4560200125F74 /* AppleMusicKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47B9621A5B375002B053D /* LoginReactor.swift */; };
@@ -56,7 +60,6 @@
 		D9C47BB621A6CC76002B053D /* ApplicationService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D9C47BA021A6CC75002B053D /* ApplicationService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D9C47BC721A6CCF2002B053D /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BC621A6CCF2002B053D /* Reactor.swift */; };
 		D9C47BD521A6EE39002B053D /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF248219083A300B8FDD4 /* Domain.framework */; };
-		D9C47BD621A6EE3D002B053D /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF26B219083CA00B8FDD4 /* Infrastructure.framework */; };
 		D9C47BD721A6EE40002B053D /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF28F2190983C00B8FDD4 /* Utility.framework */; };
 		D9C47BD821A6EE46002B053D /* Utility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF28F2190983C00B8FDD4 /* Utility.framework */; };
 		D9C47BD921A6EE4E002B053D /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF248219083A300B8FDD4 /* Domain.framework */; };
@@ -64,7 +67,7 @@
 		D9C47BDF21A706F6002B053D /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BDE21A706F6002B053D /* AppDependency.swift */; };
 		D9C47BE121A70751002B053D /* GatewayReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE021A70751002B053D /* GatewayReactor.swift */; };
 		D9C47BE321A7075D002B053D /* GatewayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE221A7075D002B053D /* GatewayViewController.swift */; };
-		D9C47BE521A725C3002B053D /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE421A725C3002B053D /* LaunchService.swift */; };
+		D9C47BE521A725C3002B053D /* LaunchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE421A725C3002B053D /* LaunchUseCase.swift */; };
 		D9C47BE721A725F9002B053D /* ApplicationServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */; };
 		D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2172190838900B8FDD4 /* AppDelegate.swift */; };
 		D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DAF2192190838900B8FDD4 /* ViewController.swift */; };
@@ -295,6 +298,10 @@
 		D962EE5921A8EEF30059EB63 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		D962EE5C21A90F9D0059EB63 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		D962EE6021AD89AB0059EB63 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		D962EE6221AD9C760059EB63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D962EE6521AD9DB60059EB63 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		D962EE6821AD9EAC0059EB63 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		D962EE6A21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureServiceProvider.swift; sourceTree = "<group>"; };
 		D9C47B9621A5B375002B053D /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		D9C47B9921A5B697002B053D /* LaunchReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchReactor.swift; sourceTree = "<group>"; };
 		D9C47BA021A6CC75002B053D /* ApplicationService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ApplicationService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,7 +314,7 @@
 		D9C47BDE21A706F6002B053D /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
 		D9C47BE021A70751002B053D /* GatewayReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayReactor.swift; sourceTree = "<group>"; };
 		D9C47BE221A7075D002B053D /* GatewayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GatewayViewController.swift; sourceTree = "<group>"; };
-		D9C47BE421A725C3002B053D /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		D9C47BE421A725C3002B053D /* LaunchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchUseCase.swift; sourceTree = "<group>"; };
 		D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationServiceProvider.swift; sourceTree = "<group>"; };
 		D9DAF2152190838900B8FDD4 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9DAF2172190838900B8FDD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -352,7 +359,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C47BD721A6EE40002B053D /* Utility.framework in Frameworks */,
-				D9C47BD621A6EE3D002B053D /* Infrastructure.framework in Frameworks */,
 				D9C47BD521A6EE39002B053D /* Domain.framework in Frameworks */,
 				CB5CB6A6BDABE0054586B1D1 /* libPods-ApplicationService.a in Frameworks */,
 			);
@@ -515,6 +521,7 @@
 		D94D3B2821A1206A00B241CB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D962EE6421AD9CDA0059EB63 /* Service */,
 				D962EE5821A8EECE0059EB63 /* OAuth */,
 				D94D3B2A21A1223300B241CB /* Model */,
 				D946B74F21A59C4F006568FA /* Repository */,
@@ -589,6 +596,22 @@
 			path = OAuth;
 			sourceTree = "<group>";
 		};
+		D962EE6421AD9CDA0059EB63 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D962EE6521AD9DB60059EB63 /* LaunchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D962EE6721AD9DFD0059EB63 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D962EE6821AD9EAC0059EB63 /* LaunchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		D9C47B9421A5AE16002B053D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,7 +663,7 @@
 			children = (
 				D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */,
 				D9C47BC621A6CCF2002B053D /* Reactor.swift */,
-				D9C47BE421A725C3002B053D /* LaunchService.swift */,
+				D9C47BE421A725C3002B053D /* LaunchUseCase.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -718,6 +741,7 @@
 				D9C47B9421A5AE16002B053D /* Sources */,
 				D9DAF2192190838900B8FDD4 /* ViewController.swift */,
 				D9DAF21E2190838B00B8FDD4 /* Assets.xcassets */,
+				D962EE6221AD9C760059EB63 /* GoogleService-Info.plist */,
 				D9DAF2232190838B00B8FDD4 /* Info.plist */,
 			);
 			path = App;
@@ -801,6 +825,8 @@
 		D9DAF2B621A09F5B00B8FDD4 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D962EE6A21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift */,
+				D962EE6721AD9DFD0059EB63 /* Service */,
 				D962EE5B21A90F900059EB63 /* OAuth */,
 				D94D3B5121A1727000B241CB /* Model */,
 				D9DAF2B921A0A31F00B8FDD4 /* Session.swift */,
@@ -1171,6 +1197,7 @@
 			files = (
 				D9DAF2222190838B00B8FDD4 /* LaunchScreen.storyboard in Resources */,
 				D9DAF21F2190838B00B8FDD4 /* Assets.xcassets in Resources */,
+				D962EE6321AD9C760059EB63 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1501,7 +1528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C47BE521A725C3002B053D /* LaunchService.swift in Sources */,
+				D9C47BE521A725C3002B053D /* LaunchUseCase.swift in Sources */,
 				D9C47BC721A6CCF2002B053D /* Reactor.swift in Sources */,
 				D9C47BE721A725F9002B053D /* ApplicationServiceProvider.swift in Sources */,
 			);
@@ -1565,6 +1592,7 @@
 				D94D3B5021A16E0600B241CB /* Genre.swift in Sources */,
 				D94D3B4A21A16E0600B241CB /* Curator.swift in Sources */,
 				D94D3B4F21A16E0600B241CB /* Playlist.swift in Sources */,
+				D962EE6621AD9DB60059EB63 /* LaunchService.swift in Sources */,
 				D94D3B3221A16D6400B241CB /* Entity.swift in Sources */,
 				D94D3B4921A16E0600B241CB /* Artist.swift in Sources */,
 				D946B75521A5A597006568FA /* AppSessionRepository.swift in Sources */,
@@ -1588,6 +1616,8 @@
 			files = (
 				D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */,
 				D962EE5D21A90F9D0059EB63 /* OAuth.swift in Sources */,
+				D962EE6921AD9EAC0059EB63 /* LaunchService.swift in Sources */,
+				D962EE6B21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift in Sources */,
 				D94D3B5621A172DB00B241CB /* Entity.swift in Sources */,
 				D94D3B5421A1729700B241CB /* Storefront.swift in Sources */,
 				D9DAF2BA21A0A31F00B8FDD4 /* Session.swift in Sources */,
@@ -1952,7 +1982,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.App;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.musii.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1974,7 +2004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.App;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.musii.App;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

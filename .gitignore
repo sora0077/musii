@@ -48,7 +48,6 @@ playground.xcworkspace
 #
 
 Pods/
-vendor/
 
 #
 # Add this line if you want to avoid checking in source code from the Xcode workspace
@@ -79,3 +78,10 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+
+# project settings
+#
+#
+#
+vendor/bundle
+GoogleService-Info.plist

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Domain
+import Infrastructure
 import ApplicationService
-import Keys
 
 struct AppDependency {
     typealias OpenURLHandler = (URL, UIApplication.State) -> Bool
@@ -20,20 +21,21 @@ struct AppDependency {
 final class CompositionRoot {
 
     static func resolve() -> AppDependency {
-        let window = UIWindow(frame: UIScreen.main.bounds)
 
-        let launchService = ApplicationServiceProvider.launchService()
+        let launchService = InfrastructureServiceProvider.launchService()
+        let launchUseCase = ApplicationServiceProvider.launchUseCase(with: launchService)
 
         let gatewayReactor = GatewayReactor()
         let gatewayViewController = GatewayViewController(
             reactor: gatewayReactor,
             launchView: {
                 LaunchViewController(
-                    reactor: LaunchReactor(launchService: launchService)
+                    reactor: LaunchReactor(launchUseCase: launchUseCase)
                 )
             }
         )
 
+        let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = gatewayViewController
         window.makeKeyAndVisible()
 

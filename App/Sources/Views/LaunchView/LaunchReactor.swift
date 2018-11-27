@@ -24,10 +24,10 @@ final class LaunchReactor: Reactor {
 
     var initialState: State { return .init() }
 
-    private let launchService: LaunchService
+    private let launchUseCase: LaunchUseCase
 
-    init(launchService: LaunchService) {
-        self.launchService = launchService
+    init(launchUseCase: LaunchUseCase) {
+        self.launchUseCase = launchUseCase
     }
 
     func mutate(action: Action) -> Observable<Mutation> {
@@ -35,7 +35,7 @@ final class LaunchReactor: Reactor {
         case .launch:
             return .concat([
                 .just(.setLoading(true)),
-                launchService.launch().asObservable()
+                launchUseCase.launch().asObservable()
                     .map { .setLaunched }
                     .catchError { _ in .empty() },
                 .just(.setLoading(false))
