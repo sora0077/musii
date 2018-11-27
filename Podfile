@@ -13,7 +13,7 @@ use_modular_headers!
 
 target 'Utility' do
   # Pods for Utility
-  pod 'FoundationSupport/Core', :git => 'https://github.com/sora0077/FoundationSupport.git'
+  pod 'FoundationSupport', :git => 'https://github.com/sora0077/FoundationSupport.git'
 
   target 'Domain' do
     inherit! :search_paths
@@ -37,12 +37,14 @@ target 'Utility' do
 
         pod 'ReactorKit'
         pod 'RxCocoa'
+        pod 'UIKitSupport', :git => 'https://github.com/sora0077/FoundationSupport.git'
 
         target 'App' do
           inherit! :search_paths
 
           # Pods for App
           pod 'SwiftLint'
+          pod 'Constraint', :git => 'https://github.com/sora0077/Constraint.git'
 
           script_phase :name => 'Run SwiftLint',
                        :script => (
