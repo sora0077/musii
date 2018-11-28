@@ -55,9 +55,9 @@ final class GatewayViewController: UIViewController, View {
 
         reactor.state.map { $0.trigger }
             .filterNil()
-            .distinctUntilChanged { $0 == $1 }
+            .distinctUntilChanged()
             .bind(to: Binder(self) { vc, args in
-                vc.handleTrigger(args.mode, applicationState: args.applicationState)
+                vc.handleTrigger(args.event, applicationState: args.applicationState)
             })
             .disposed(by: disposeBag)
 
@@ -88,7 +88,7 @@ final class GatewayViewController: UIViewController, View {
             vc.rx.didLaunch
                 .map { Reactor.Action.ready }
                 .bind(to: reactor.action)
-                .disposed(by: disposeBag)
+                .disposed(by: vc.disposeBag)
             vc.modalTransitionStyle = .crossDissolve
             present(vc, animated: false, completion: nil)
 
@@ -100,7 +100,7 @@ final class GatewayViewController: UIViewController, View {
         }
     }
 
-    private func handleTrigger(_ trigger: GatewayReactor.Trigger, applicationState: UIApplication.State) {
+    private func handleTrigger(_ event: GatewayReactor.Trigger.Event, applicationState: UIApplication.State) {
 
     }
 }
