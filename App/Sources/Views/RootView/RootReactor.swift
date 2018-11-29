@@ -11,7 +11,10 @@ import ApplicationService
 
 final class RootReactor: Reactor {
     enum Action {}
-    struct State {}
+    struct State {
+        var isLoggedIn: Bool = false
+    }
 
     var initialState: State { return .init() }
+
 }

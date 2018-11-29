@@ -10,17 +10,30 @@ import Foundation
 import RxSwift
 
 open class OAuth {
-    public typealias Provider = OAuthProvider
+    open var gitHub: GitHub { abstract() }
+
+    public init() {}
 
     open func handleURL(_ url: URL) -> Bool {
         abstract()
     }
 }
 
-public protocol OAuthProvider {
-    associatedtype Context
+extension OAuth {
+    public enum Error: Swift.Error {
+        case timeout
+        case invalidState
+    }
+}
 
-    var redirectURL: URL { get }
+extension OAuth {
+    open class GitHub {
+        open var authorizeURL: URL { abstract() }
 
-    func auth(with context: Context) -> Single<Void>
+        public init() {}
+
+        open func authorized() -> Single<Void> {
+            abstract()
+        }
+    }
 }

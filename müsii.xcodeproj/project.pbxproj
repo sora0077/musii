@@ -17,6 +17,8 @@
 		9D65E977B8C59AA1EDC55F33 /* libPods-App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 45508751394127384B2E1EB9 /* libPods-App.a */; };
 		9E3DD1CDE880CF4C13A0F587 /* libPods-Domain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAFFA9614FBEAB2897A070 /* libPods-Domain.a */; };
 		CB5CB6A6BDABE0054586B1D1 /* libPods-ApplicationService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E0600017329F6125FCB950 /* libPods-ApplicationService.a */; };
+		D921EA7C21AEE16600C12C98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921EA7B21AEE16600C12C98 /* LoginViewController.swift */; };
+		D921EA7E21AEEFA100C12C98 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921EA7D21AEEFA100C12C98 /* AuthUseCase.swift */; };
 		D946B74E21A59BAD006568FA /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B74D21A59BAD006568FA /* DomainError.swift */; };
 		D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */; };
 		D946B75321A5A387006568FA /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75221A5A387006568FA /* AppSession.swift */; };
@@ -49,8 +51,6 @@
 		D962EE6621AD9DB60059EB63 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6521AD9DB60059EB63 /* LaunchService.swift */; };
 		D962EE6921AD9EAC0059EB63 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6821AD9EAC0059EB63 /* LaunchService.swift */; };
 		D962EE6B21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6A21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift */; };
-		D962EE6E21ADB1880059EB63 /* WalkthroughReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6D21ADB1880059EB63 /* WalkthroughReactor.swift */; };
-		D962EE7021ADB1930059EB63 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE6F21ADB1930059EB63 /* WalkthroughViewController.swift */; };
 		D962EE7321ADBB420059EB63 /* RootReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE7221ADBB420059EB63 /* RootReactor.swift */; };
 		D962EE7521ADBB4E0059EB63 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D962EE7421ADBB4E0059EB63 /* RootViewController.swift */; };
 		D98804AC21A4560200125F74 /* AppleMusicKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DAF2B321A09F2A00B8FDD4 /* AppleMusicKit.framework */; };
@@ -274,6 +274,8 @@
 		CAC9A75A98A536946D95C7B8 /* Pods-AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppTests/Pods-AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		CCEFEB61E61DFEA9404389C2 /* libPods-DomainTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DomainTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF0BBF34FB65AB79055435B2 /* Pods_AppleMusicKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusicKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D921EA7B21AEE16600C12C98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D921EA7D21AEEFA100C12C98 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
 		D946B74D21A59BAD006568FA /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIs+AppleMusicKit.swift"; sourceTree = "<group>"; };
 		D946B75221A5A387006568FA /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
@@ -306,8 +308,6 @@
 		D962EE6521AD9DB60059EB63 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
 		D962EE6821AD9EAC0059EB63 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
 		D962EE6A21AD9ECA0059EB63 /* InfrastructureServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureServiceProvider.swift; sourceTree = "<group>"; };
-		D962EE6D21ADB1880059EB63 /* WalkthroughReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughReactor.swift; sourceTree = "<group>"; };
-		D962EE6F21ADB1930059EB63 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		D962EE7221ADBB420059EB63 /* RootReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReactor.swift; sourceTree = "<group>"; };
 		D962EE7421ADBB4E0059EB63 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		D9C47B9621A5B375002B053D /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
@@ -620,15 +620,6 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
-		D962EE6C21ADB1470059EB63 /* WalkthroughView */ = {
-			isa = PBXGroup;
-			children = (
-				D962EE6D21ADB1880059EB63 /* WalkthroughReactor.swift */,
-				D962EE6F21ADB1930059EB63 /* WalkthroughViewController.swift */,
-			);
-			path = WalkthroughView;
-			sourceTree = "<group>";
-		};
 		D962EE7121ADBB290059EB63 /* RootView */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +643,7 @@
 			isa = PBXGroup;
 			children = (
 				D9C47B9621A5B375002B053D /* LoginReactor.swift */,
+				D921EA7B21AEE16600C12C98 /* LoginViewController.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -690,6 +682,7 @@
 				D9C47BE621A725F9002B053D /* ApplicationServiceProvider.swift */,
 				D9C47BC621A6CCF2002B053D /* Reactor.swift */,
 				D9C47BE421A725C3002B053D /* LaunchUseCase.swift */,
+				D921EA7D21AEEFA100C12C98 /* AuthUseCase.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -700,7 +693,6 @@
 				D9C47BDC21A706A6002B053D /* GatewayView */,
 				D9C47B9821A5B67F002B053D /* LaunchView */,
 				D962EE7121ADBB290059EB63 /* RootView */,
-				D962EE6C21ADB1470059EB63 /* WalkthroughView */,
 				D9C47B9521A5B365002B053D /* LoginView */,
 			);
 			path = Views;
@@ -1580,6 +1572,7 @@
 				D9C47BE521A725C3002B053D /* LaunchUseCase.swift in Sources */,
 				D9C47BC721A6CCF2002B053D /* Reactor.swift in Sources */,
 				D9C47BE721A725F9002B053D /* ApplicationServiceProvider.swift in Sources */,
+				D921EA7E21AEEFA100C12C98 /* AuthUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1595,6 +1588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D921EA7C21AEE16600C12C98 /* LoginViewController.swift in Sources */,
 				D9DAF21A2190838900B8FDD4 /* ViewController.swift in Sources */,
 				D962EE7521ADBB4E0059EB63 /* RootViewController.swift in Sources */,
 				D962EE7321ADBB420059EB63 /* RootReactor.swift in Sources */,
@@ -1604,10 +1598,8 @@
 				D9C47B9A21A5B697002B053D /* LaunchReactor.swift in Sources */,
 				D9DAF2182190838900B8FDD4 /* AppDelegate.swift in Sources */,
 				D9C47B9721A5B375002B053D /* LoginReactor.swift in Sources */,
-				D962EE6E21ADB1880059EB63 /* WalkthroughReactor.swift in Sources */,
 				D9C47BE321A7075D002B053D /* GatewayViewController.swift in Sources */,
 				D948484521A7BF6B009B3823 /* LaunchViewController.swift in Sources */,
-				D962EE7021ADB1930059EB63 /* WalkthroughViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

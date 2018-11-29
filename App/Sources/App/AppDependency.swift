@@ -22,8 +22,13 @@ final class CompositionRoot {
 
     static func resolve() -> AppDependency {
 
+        let session = InfrastructureServiceProvider.session()
+
         let launchService = InfrastructureServiceProvider.launchService()
         let launchUseCase = ApplicationServiceProvider.launchUseCase(with: launchService)
+
+        let oauth = InfrastructureServiceProvider.oauth(scheme: "musicshot-dev-oauth", session: session)
+        let authUseCase = ApplicationServiceProvider.authUseCase(oauth: oauth)
 
         let gatewayReactor = GatewayReactor()
         let gatewayViewController = GatewayViewController(
@@ -34,7 +39,14 @@ final class CompositionRoot {
                 )
             },
             rootView: {
-                RootViewController(reactor: RootReactor())
+                RootViewController(
+                    reactor: RootReactor(),
+                    loginView: {
+                        LoginViewController(
+                            reactor: LoginReactor(authUseCase: authUseCase)
+                        )
+                    }
+                )
             }
         )
 
@@ -44,7 +56,11 @@ final class CompositionRoot {
 
         return AppDependency(
             window: window,
-            openURLHandler: { [weak gatewayReactor] url, state in
+            openURLHandler: { [weak oauth, weak gatewayReactor] url, state in
+                if oauth?.handleURL(url) ?? false {
+                    return true
+                }
+
                 gatewayReactor?.action.onNext(.open(with: .openURL(url), applicationState: state))
                 return true
             }

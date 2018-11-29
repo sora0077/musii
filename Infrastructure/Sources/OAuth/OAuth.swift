@@ -14,18 +14,38 @@ import FirebaseAuth
 import Alamofire
 import Keys
 
-protocol _OAuthRequst {
+public protocol _OAuthRequst {
     associatedtype Response: Decodable
 
     func dataRequest(from manager: SessionManager) -> Single<Response>
 }
 
+extension InfrastructureServiceProvider {
+    public static func oauth(
+        scheme: String,
+        session: NetworkSession
+    ) -> OAuth {
+        return OAuthImpl(
+            scheme: scheme,
+            session: session
+        )
+    }
+}
+
 extension OAuth {
-    typealias Request = _OAuthRequst
+    public typealias Request = _OAuthRequst
 }
 
 final class OAuthImpl: OAuth {
+
+    override var gitHub: OAuth.GitHub { return _gitHub }
+    private let _gitHub: OAuth.GitHub
+
     private let router = DPLDeepLinkRouter()
+
+    init(scheme: String, session: NetworkSession) {
+        _gitHub = OAuthGitHub(scheme: scheme, session: session, router: router)
+    }
 
     override func handleURL(_ url: URL) -> Bool {
         return router.handle(url, withCompletion: nil)
@@ -33,32 +53,75 @@ final class OAuthImpl: OAuth {
 }
 
 // MARK: - github
-private final class OAuthGitHub: OAuth.Provider {
+private final class OAuthGitHub: OAuth.GitHub {
+
+    override var authorizeURL: URL {
+        var comps = URLComponents(string: "https://github.com/login/oauth/authorize")
+        comps?.queryItems = [
+            URLQueryItem(name: "client_id", value: MuSiiKeys().githubClientId),
+            URLQueryItem(name: "redirect_uri", value: redirectURL.absoluteString),
+            URLQueryItem(name: "state", value: state)
+        ]
+
+        return comps!.url!
+    }
 
     let redirectURL: URL
 
     private let session: NetworkSession
+    private let state: String
+    private let handleURL = PublishSubject<DPLDeepLink>()
 
-    init(scheme: String, session: NetworkSession) {
+    init(scheme: String, session: NetworkSession, state: String = .random(), router: DPLDeepLinkRouter) {
         redirectURL = URL(string: "\(scheme):///oauth/github")!
         self.session = session
+        self.state = state
+        super.init()
+
+        router.register(redirectURL.absoluteString) { [weak self] link in
+            if let link = link {
+                self?.handleURL.onNext(link)
+            }
+        }
     }
 
-    func auth(with context: String) -> Single<Void> {
-        let request = GetAccessToken(
-            clientId: MuSiiKeys().githubClientId,
-            clientSecret: MuSiiKeys().githubClientSecret,
-            code: context,
-            redirectURL: redirectURL,
-            state: String.random()
-        )
-        return session.send(request)
-            .flatMap { response in
-                Auth.auth().rx
-                    .signInAndRetrieveData(with: GitHubAuthProvider.credential(withToken: response.accessToken))
-                    .map { _ in }
+    override func authorized() -> Single<Void> {
+        let session = self.session
+        let state = self.state
+        return handleURL
+            .map { link in
+                if let code = link.queryParameters["code"] as? String,
+                    let returnedState = link.queryParameters["state"] as? String, state == returnedState {
+                    return code
+                } else {
+                    throw OAuth.Error.invalidState
+                }
+            }
+            .map { code in
+                GetAccessToken(
+                    clientId: MuSiiKeys().githubClientId,
+                    clientSecret: MuSiiKeys().githubClientSecret,
+                    code: code,
+                    state: state
+                )
+            }
+            .take(1)
+            .asSingle()
+            .flatMap(session.send)
+            .map { response in
+                print(response)
             }
     }
+
+//    func auth(with context: String) -> Single<Void> {
+//        let request =
+//        return session.send(request)
+//            .flatMap { response in
+//                Auth.auth().rx
+//                    .signInAndRetrieveData(with: GitHubAuthProvider.credential(withToken: response.accessToken))
+//                    .map { _ in }
+//            }
+//    }
 }
 
 extension OAuthGitHub {
@@ -72,22 +135,25 @@ extension OAuthGitHub {
         private let clientId: String
         private let clientSecret: String
         private let code: String
-        private let redirectURL: URL?
-        private let state: String?
+        private let state: String
 
-        init(clientId: String, clientSecret: String, code: String, redirectURL: URL?, state: String?) {
+        init(clientId: String, clientSecret: String, code: String, state: String) {
             self.clientId = clientId
             self.clientSecret = clientSecret
             self.code = code
-            self.redirectURL = redirectURL
             self.state = state
         }
 
         func dataRequest(from manager: SessionManager) -> Single<Response> {
+            let parameters = ["client_id": clientId,
+                              "client_secret": clientSecret,
+                              "code": code,
+                              "state": state]
             return Single.create(subscribe: { event in
                 let request =  manager.request(URL(string: "https://github.com/login/oauth/access_token")!,
                                                method: .post,
-                                               parameters: ["client_id": self.clientId])
+                                               parameters: parameters,
+                                               headers: ["Accept": "application/json"])
                 request.responseData(queue: .global()) { response in
                     let result = response.result.flatMap { data -> Response in
                         let decoder = JSONDecoder()

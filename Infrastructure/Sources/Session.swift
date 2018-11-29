@@ -12,10 +12,17 @@ import RxSwift
 import AppleMusicKit
 import Alamofire
 
-protocol NetworkSession {
+public protocol NetworkSession {
 
     func send<Req: AppleMusicKit.Request>(_ request: Req) -> Single<Req.Response>
     func send<Req: OAuth.Request>(_ request: Req) -> Single<Req.Response>
+}
+
+extension InfrastructureServiceProvider {
+
+    public static func session() -> NetworkSession {
+        return SessionImpl()
+    }
 }
 
 final class SessionImpl: NetworkSession {

@@ -15,6 +15,16 @@ extension Observable {
     }
 }
 
+extension Observable where Element == Bool {
+    func filterTrue() -> Observable<Void> {
+        return filter { $0 }.map { _ in }
+    }
+
+    func filterFalse() -> Observable<Void> {
+        return filter { !$0 }.map { _ in }
+    }
+}
+
 extension Reactive where Base: UIViewController {
     var viewDidLoad: ControlEvent<Void> {
         return ControlEvent(
