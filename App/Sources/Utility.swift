@@ -13,6 +13,14 @@ extension Observable {
     func filterNil<T>() -> Observable<T> where Element == T? {
         return filter { $0 != nil }.map { $0! }
     }
+
+    func map<T>(_ keyPath: KeyPath<Element, T>) -> Observable<T> {
+        return map { $0[keyPath: keyPath] }
+    }
+
+    func map<T, U>(_ keyPath: KeyPath<Element, T>, _ transform: @escaping (T) throws -> U) -> Observable<U> {
+        return map { try transform($0[keyPath: keyPath]) }
+    }
 }
 
 extension Observable where Element == Bool {

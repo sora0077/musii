@@ -61,7 +61,7 @@ final class LaunchViewController: UIViewController, View {
     }
 }
 
-extension Reactive where Base == LaunchViewController {
+extension Reactive where Base: LaunchViewController {
     var didLaunch: ControlEvent<Void> {
         return ControlEvent(events: base.didLaunch)
     }

@@ -86,18 +86,26 @@ private final class OAuthGitHub: OAuth.GitHub {
     }
 
     override func authorized() -> Single<Void> {
-        let session = self.session
-        let state = self.state
         return handleURL
-            .map { link in
-                if let code = link.queryParameters["code"] as? String,
-                    let returnedState = link.queryParameters["state"] as? String, state == returnedState {
-                    return code
-                } else {
+            .timeout(60 * 10, scheduler: MainScheduler.instance)
+            .catchError { error in
+                switch error {
+                case RxError.timeout:
+                    throw OAuth.Error.timeout
+                default:
+                    throw error
+                }
+            }
+            .map { [weak self] link in
+                switch (link.queryParameters["code"], link.queryParameters["state"]) {
+                case (let code as String, let state as String) where state == self?.state:
+                    return (code, state)
+
+                default:
                     throw OAuth.Error.invalidState
                 }
             }
-            .map { code in
+            .map { code, state in
                 GetAccessToken(
                     clientId: MuSiiKeys().githubClientId,
                     clientSecret: MuSiiKeys().githubClientSecret,
@@ -108,20 +116,10 @@ private final class OAuthGitHub: OAuth.GitHub {
             .take(1)
             .asSingle()
             .flatMap(session.send)
-            .map { response in
-                print(response)
-            }
+            .map { GitHubAuthProvider.credential(withToken: $0.accessToken) }
+            .flatMap(Auth.auth().rx.signInAndRetrieveData(with:))
+            .map { _ in }
     }
-
-//    func auth(with context: String) -> Single<Void> {
-//        let request =
-//        return session.send(request)
-//            .flatMap { response in
-//                Auth.auth().rx
-//                    .signInAndRetrieveData(with: GitHubAuthProvider.credential(withToken: response.accessToken))
-//                    .map { _ in }
-//            }
-//    }
 }
 
 extension OAuthGitHub {
@@ -167,6 +165,7 @@ extension OAuthGitHub {
                         event(.error(error))
                     }
                 }
+                print(request.debugDescription)
                 return Disposables.create {
                     request.cancel()
                 }

@@ -14,10 +14,10 @@ final class RootViewController: UIViewController, View {
 
     var disposeBag = DisposeBag()
 
-    private let loginView: () -> UIViewController
+    private let loginView: () -> LoginViewController
 
     init(reactor: RootReactor,
-         loginView: @escaping () -> UIViewController) {
+         loginView: @escaping () -> LoginViewController) {
         defer { self.reactor = reactor }
         self.loginView = loginView
         super.init(nibName: nil, bundle: nil)
@@ -54,6 +54,11 @@ final class RootViewController: UIViewController, View {
         }
 
         let vc = loginView()
+        vc.rx.didLogin
+            .bind(to: Binder(self) { [weak vc] from, _ in
+                from.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: vc.disposeBag)
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }

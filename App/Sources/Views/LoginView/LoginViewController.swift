@@ -16,6 +16,8 @@ final class LoginViewController: UIViewController, View {
 
     var disposeBag = DisposeBag()
 
+    fileprivate let didLogin = PublishSubject<Void>()
+
     init(reactor: LoginReactor) {
         defer { self.reactor = reactor }
         super.init(nibName: nil, bundle: nil)
@@ -35,17 +37,15 @@ final class LoginViewController: UIViewController, View {
         reactor.state.map { $0.didLogin }
             .distinctUntilChanged()
             .filterTrue()
-            .bind(to: Binder(self) { vc, _ in
-                vc.dismiss(animated: true, completion: nil)
-            })
+            .bind(to: didLogin)
             .disposed(by: disposeBag)
 
         rx.viewDidAppear
             .take(1)
-            .bind(to: Binder(self) { [weak reactor] vc, _ in
+            .bind(to: Binder(self) { [weak reactor] from, _ in
                 guard let reactor = reactor else { return }
                 let safariVC = SFSafariViewController(url: reactor.authUseCase.oauth.gitHub.authorizeURL)
-                vc.present(safariVC, animated: true, completion: nil)
+                from.present(safariVC, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
 
@@ -57,7 +57,8 @@ final class LoginViewController: UIViewController, View {
     }
 }
 
-private final class AuthGithuViewController: UIViewController {
-
-    private let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+extension Reactive where Base: LoginViewController {
+    var didLogin: ControlEvent<Void> {
+        return ControlEvent(events: base.didLogin)
+    }
 }

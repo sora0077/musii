@@ -59,6 +59,8 @@ final class SessionImpl: NetworkSession {
                 }
             }
 
+            print(req.debugDescription)
+
             return Disposables.create {
                 req?.cancel()
             }
