@@ -38,7 +38,6 @@ open class SignalOf<E: Entity> {
     }
 }
 
-
 public protocol NewPlaylist {
 
     func get() -> (Observable<[Any]>, () -> Void)
