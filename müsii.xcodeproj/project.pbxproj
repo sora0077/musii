@@ -19,6 +19,7 @@
 		CB5CB6A6BDABE0054586B1D1 /* libPods-ApplicationService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87E0600017329F6125FCB950 /* libPods-ApplicationService.a */; };
 		D921EA7C21AEE16600C12C98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921EA7B21AEE16600C12C98 /* LoginViewController.swift */; };
 		D921EA7E21AEEFA100C12C98 /* AuthUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921EA7D21AEEFA100C12C98 /* AuthUseCase.swift */; };
+		D921EA8021C0128800C12C98 /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D921EA7F21C0128800C12C98 /* Signal.swift */; };
 		D946B74E21A59BAD006568FA /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B74D21A59BAD006568FA /* DomainError.swift */; };
 		D946B75121A59FE6006568FA /* APIs+AppleMusicKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */; };
 		D946B75321A5A387006568FA /* AppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946B75221A5A387006568FA /* AppSession.swift */; };
@@ -276,6 +277,7 @@
 		CF0BBF34FB65AB79055435B2 /* Pods_AppleMusicKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusicKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D921EA7B21AEE16600C12C98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D921EA7D21AEEFA100C12C98 /* AuthUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUseCase.swift; sourceTree = "<group>"; };
+		D921EA7F21C0128800C12C98 /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		D946B74D21A59BAD006568FA /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		D946B75021A59FE6006568FA /* APIs+AppleMusicKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIs+AppleMusicKit.swift"; sourceTree = "<group>"; };
 		D946B75221A5A387006568FA /* AppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSession.swift; sourceTree = "<group>"; };
@@ -544,6 +546,7 @@
 				D94D3B3121A16D6400B241CB /* Entity.swift */,
 				D94D3B2D21A127A500B241CB /* AppleMusic */,
 				D946B75221A5A387006568FA /* AppSession.swift */,
+				D921EA7F21C0128800C12C98 /* Signal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1644,6 +1647,7 @@
 				D946B74E21A59BAD006568FA /* DomainError.swift in Sources */,
 				D94D3B4B21A16E0600B241CB /* Album.swift in Sources */,
 				D962EE5A21A8EEF30059EB63 /* OAuth.swift in Sources */,
+				D921EA8021C0128800C12C98 /* Signal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
