@@ -24,7 +24,9 @@ extension Identifiable where Self.IdentifierRawValue: Equatable {
 }
 
 extension Identifiable where Self.IdentifierRawValue: Hashable {
-    public var hashValue: Int { return id.hashValue }
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 //
